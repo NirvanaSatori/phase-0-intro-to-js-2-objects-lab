@@ -24,22 +24,22 @@ newerEmployees=destructivelyUpdateEmployeeWithKeyAndValue(
 employee.John;    
 newerEmployees.John;
 
-function deleteFromEmployeeByKey(employee, key) {
-    return delete employee.key;
-};
-
-const newestEmployees =deleteFromEmployeeByKey(
-    employee,
-    "John");
-
-newestEmployees;
 
 
-function destructivelyDeleteFromEmployeeByKey(employee, key) {
+function deleteFromEmployeeByKey(employee, key){
+    const deleteEmployee = {...employee};
+    delete deleteEmployee[key];      // delete property with that key
+    return deleteEmployee;     // returns a new object
+}
 
-    return delete employee.key;
+
+function destructivelyDeleteFromEmployeeByKey(employee, key){
+    delete employee[key];
+    return employee;
 }
 const updatedEmployees =deleteFromEmployeeByKey(
     employee,
     "John");
 updatedEmployees;
+
+
